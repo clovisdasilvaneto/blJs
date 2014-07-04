@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<div>ola</div>
+
+<script type="text/javascript">
+
+(function(){
+var foo = function(arg){
+if(!(this instanceof foo)){
+return new foo(arg);
+}
+
+this.myArg = arg;
+}
+
+foo.fn = foo.prototype = {
+	esconde: function(){
+		document.querySelector(this.myArg).setAttribute('style','display:none');
+	}
+}
+
+window.foo = foo,window.$ = foo;
+})();
+
+$("div").esconde();
+
+
+</script>
+</body>
+</html>
