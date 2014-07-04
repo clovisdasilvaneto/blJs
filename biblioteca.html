@@ -10,21 +10,21 @@
 <script type="text/javascript">
 
 (function(){
-var foo = function(arg){
-if(!(this instanceof foo)){
-return new foo(arg);
+var blJs = function(arg){
+if(!(this instanceof blJs)){
+return new blJs(arg);
 }
 
 this.myArg = arg;
 }
 
-foo.fn = foo.prototype = {
+blJs.fn = blJs.prototype = {
 	esconde: function(){
 		document.querySelector(this.myArg).setAttribute('style','display:none');
 	}
 }
 
-window.foo = foo,window.$ = foo;
+window.blJs = blJs,window.$ = blJs;
 })();
 
 $("div").esconde();
