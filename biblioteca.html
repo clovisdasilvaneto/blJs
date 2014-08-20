@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Document</title>
 </head>
 <body>
 <div>ola</div>
@@ -19,16 +14,25 @@ this.myArg = arg;
 }
 
 blJs.fn = blJs.prototype = {
+	//Função que esconde elementos HTML com o Atributo display:none;.
 	esconde: function(){
 		document.querySelector(this.myArg).setAttribute('style','display:none');
+		return this;
+	},//Se separa com vírgula tanto função quanto variavel pois é um objeto.
+	//Função que remove o atributo style e todos os atributos contidos dentro dela.
+	reset: function(){
+		document.querySelector(this.myArg).removeAttribute("style");
+		return this;
 	}
 }
 
 window.blJs = blJs,window.$ = blJs;
 })();
 
+//Esconde a Div
 $("div").esconde();
-
+//Remove o atributo style da tag fazendo aparecer a Div em 2 segundos com a frase contida nela
+setTimeout(function(){$("div").reset()}, 2000);
 
 </script>
 </body>
